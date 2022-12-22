@@ -1,14 +1,31 @@
 import './Form.css';
 import TextInput from '../TextInput';
+import Dropdown from '../Dropdown';
+import Button from '../Button';
+import { useState } from 'react';
 
 export const Form = (props) => {
+  const times = ['rythelle', 'camargo', 'pereira'];
+
+  const [name, setName] = useState('');
+  const [position, setPosition] = useState('');
+  const [image, setImage] = useState('');
+  const [team, setTeam] = useState('');
+
+  const onSave = (event) => {
+    event.preventDefault();
+    props.onSavePerson({ name, position, image, team });
+  };
+
   return (
     <section className='section'>
-      <form>
+      <form onSubmit={onSave}>
         <h2>Preencha os dados para criar o card do colaborador</h2>
-        <TextInput label='Nome' placeholder='Digite seu nome' />
-        <TextInput label='Cargo' placeholder='Digite seu cargo' />
-        <TextInput label='Imagem' placeholder='Informe o endereço da imagem' />
+        <TextInput required={true} label='Nome' placeholder='Digite seu nome' value={name} onChange={(value) => setName(value)} />
+        <TextInput required={true} label='Cargo' placeholder='Digite seu cargo' value={position} onChange={(value) => setPosition(value)} />
+        <TextInput label='Imagem' placeholder='Informe o endereço da imagem' value={image} onChange={(value) => setImage(value)} />
+        <Dropdown required={true} label='Time' items={times} value={team} onChange={(value) => setTeam(value)} />
+        <Button>Enviar</Button>
       </form>
     </section>
   );
