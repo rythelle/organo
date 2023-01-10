@@ -1,0 +1,18 @@
+.sectionTeam {
+  text-align: center;
+  padding: 32px;
+}
+
+.sectionTeam h3 {
+  font-size: 32px;
+  border-bottom: 4px solid;
+  display: inline-block;
+  padding-bottom: 8px;
+}
+
+.sectionTeam .cardsDiv {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
