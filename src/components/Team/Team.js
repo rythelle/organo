@@ -8,7 +8,7 @@ export const Team = (props) => {
         <h3 style={{ borderColor: props.primaryColor }}>{props.name}</h3>
         <div className='cardsDiv'>
           {props.cards.map((card) => (
-            <Card key={card} params={card} />
+            <Card backgroundColor={props.primaryColor} key={card} params={card} />
           ))}
         </div>
       </section>

@@ -3,7 +3,7 @@ import './Card.css';
 export const Card = (props) => {
   return (
     <div className='card'>
-      <div className='header'>
+      <div className='header' style={{ backgroundColor: props.backgroundColor }}>
         <img src={props.params.image} alt={props.params.name} />
       </div>
       <div className='footer'>
